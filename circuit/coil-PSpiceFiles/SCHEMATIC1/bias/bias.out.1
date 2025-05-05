@@ -1,0 +1,71 @@
+
+**** 01/21/24 00:27:00 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-bias"  [ C:\Users\gamem\OneDrive\Desktop\coil-pspicefiles\schematic1\bias.sim ] 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "bias.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+.lib "nomd.lib" 
+
+*Analysis directives: 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source COIL
+V_V2         N00733 N007831 3v
+R_R1         N00771 N00649  1k TC=0,0 
+V_V1         N00649 N00755 220v
+X_U1         N007831 N00791 Sw_tClose PARAMS: tClose=6s ttran=1u Rclosed=0.01
++  Ropen=1Meg
+C_C1         N00733 N00649  1n  TC=0,0 
+X_U2         N00755 N00733 Sw_tOpen PARAMS: tOpen=5s ttran=1u Rclosed=0.01
++  Ropen=1Meg
+X_X1         N00733 N00791 N00771 2N6394
+
+**** RESUMING bias.cir ****
+.END
+
+ERROR(ORPSIM-15142): Node N00733 is floating
+
+ERROR(ORPSIM-15142): Node N007831 is floating
+
+ERROR(ORPSIM-15142): Node N00771 is floating
+
+ERROR(ORPSIM-15142): Node N00649 is floating
+
+ERROR(ORPSIM-15142): Node N00755 is floating
+
+ERROR(ORPSIM-15142): Node N00791 is floating
+
+ERROR(ORPSIM-15142): Node X_X1.X1.anode0 is floating
+
+ERROR(ORPSIM-15142): Node X_X1.X1.anode2 is floating
+
+ERROR(ORPSIM-15142): Node X_X1.X1.dvdt1 is floating
+
+ERROR(ORPSIM-15142): Node X_X1.X1.dvdt2 is floating
+
+ERROR(ORPSIM-15142): Node X_X1.X1.gate1 is floating
+
+ERROR(ORPSIM-15142): Node X_X1.X1.gate2 is floating
+
+ERROR(ORPSIM-15142): Node X_X1.X1.break1 is floating
+

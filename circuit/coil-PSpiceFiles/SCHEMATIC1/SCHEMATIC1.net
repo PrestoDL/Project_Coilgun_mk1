@@ -1,0 +1,11 @@
+* source COIL
+V_V2         0 N007831 -3v
+R_R1         N007091 N00661  1k TC=0,0 
+V_V1         N00649 0 220v
+X_U1         N007831 N01719 Sw_tClose PARAMS: tClose=6s ttran=1u Rclosed=0.01
++  Ropen=1Meg
+C_C1         0 N006931  1n  TC=0,0 
+X_U2         N00649 N00661 Sw_tOpen PARAMS: tOpen=5s ttran=1u Rclosed=0.01
++  Ropen=1Meg
+X_X1         N007091 N01719 0 2N6394
+R_R2         N00661 N006931  100 TC=0,0 

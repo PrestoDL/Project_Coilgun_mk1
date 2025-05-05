@@ -1,0 +1,167 @@
+
+**** 01/21/24 00:44:16 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-bias"  [ C:\Users\gamem\OneDrive\Desktop\coil-pspicefiles\schematic1\bias.sim ] 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "bias.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+.lib "nomd.lib" 
+
+*Analysis directives: 
+.TRAN  0 8 0 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source COIL
+V_V2         0 N007831 -3v
+R_R1         N007091 N00661  1k TC=0,0 
+V_V1         N00649 0 220v
+X_U1         N007831 N01719 Sw_tClose PARAMS: tClose=6s ttran=1u Rclosed=0.01
++  Ropen=1Meg
+C_C1         0 N006931  1n  TC=0,0 
+X_U2         N00649 N00661 Sw_tOpen PARAMS: tOpen=5s ttran=1u Rclosed=0.01
++  Ropen=1Meg
+X_X1         N007091 N01719 0 2N6394
+R_R2         N00661 N006931  100 TC=0,0 
+
+**** RESUMING bias.cir ****
+.END
+
+**** 01/21/24 00:44:16 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-bias"  [ C:\Users\gamem\OneDrive\Desktop\coil-pspicefiles\schematic1\bias.sim ] 
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_X1.X1.Dgk     X_X1.X1.Dseries X_X1.X1.Delay   X_X1.X1.Dkarev  
+          IS  100.000000E-18   10.000000E-15    1.000000E-12  100.000000E-12 
+          RS    5                                .01             .01         
+         CJO   50.000000E-12                    5.000000E-12    5.000000E-12 
+
+
+               X_X1.X1.Dakfwd  X_X1.X1.Dbreak  
+          IS   40.000000E-12   10.000000E-15 
+          BV                   55            
+         IBV                  100.000000E-09 
+          RS                     .5          
+         CJO    5.000000E-12    5.000000E-12 
+
+
+**** 01/21/24 00:44:16 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-bias"  [ C:\Users\gamem\OneDrive\Desktop\coil-pspicefiles\schematic1\bias.sim ] 
+
+
+ ****     Voltage Controlled Switch MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1.Smod       X_U2.Smod       X_X1.X1.Vswitch 
+         RON     .01             .01             .041667     
+        ROFF    1.000000E+06    1.000000E+06  245.098000E+03 
+         VON    1               1               5            
+        VOFF    0               0               1.5          
+
+
+**** 01/21/24 00:44:16 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-bias"  [ C:\Users\gamem\OneDrive\Desktop\coil-pspicefiles\schematic1\bias.sim ] 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(N00649)  220.0000 (N00661)  220.0000 (N01719) 419.9E-06 (X_U1.3)    0.0000     
+
+(X_U2.3)    1.0000 (N006931)  220.0000                   (N007091)     .5892    
+
+(N007831)    3.0000                   (X_X1.X1.Itot)     .2194                  
+
+(X_X1.X1.prod)     .1293              (X_X1.X1.dlay1)   10.0000                 
+
+(X_X1.X1.dlay2)   10.0000             (X_X1.X1.dvdt0)     .5892                 
+
+(X_X1.X1.dvdt1)    0.0000             (X_X1.X1.dvdt2)    0.0000                 
+
+(X_X1.X1.gate1) 389.9E-06             (X_X1.X1.gate2)    0.0000                 
+
+(X_X1.X1.gate4)    0.0000             (X_X1.X1.anode0)     .5800                
+
+(X_X1.X1.anode2)    0.0000            (X_X1.X1.break1)     .4927                
+
+(X_X1.X1.contot)   10.0000            (X_X1.X1.condvdt)    0.0000               
+
+(X_X1.X1.congate)    0.0000           (X_X1.X1.conmain)   10.0000               
+
+(X_X1.X1.control)    9.9406           
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V2         3.000E-06
+    V_V1        -2.194E-01
+    X_U1.V1      0.000E+00
+    X_U2.V1     -1.000E-12
+    X_X1.X1.VIak   2.194E-01
+    X_X1.X1.VdVdt   0.000E+00
+    X_X1.X1.VIgf   3.000E-06
+
+    TOTAL POWER DISSIPATION   4.83E+01  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 01/21/24 00:44:16 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-bias"  [ C:\Users\gamem\OneDrive\Desktop\coil-pspicefiles\schematic1\bias.sim ] 
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =         .03
+
